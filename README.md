@@ -4,16 +4,17 @@ CodeCollab Project: A web-based chatbot designed to help students explore academ
 
 # packages
 
-Create a virtual environment
+## Create a virtual environment
 python3 -m venv .venv
 
-Activate
+## Activate enviroment
 source .venv/bin/activate
 
-To leave venv
+##To leave venv
 ctrl+c
 
-pip install google-genai uvicorn fastapi streamlit
+##Install packages
+pip install google-genai uvicorn fastapi streamlit<br>
 pip install python-dotenv
 
 # How to run
