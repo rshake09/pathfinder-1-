@@ -27,8 +27,8 @@ uvicorn main:app --reload
 
 # How to get api key
 
-1.Verify your age for your personal google account, must be 18+
-2.Show driver license through here:https://myaccount.google.com/age-verification?p=2&avl=1&utm_source=p2
-3.Go here and create key: https://aistudio.google.com/
-4.Create a .env file
-5.Inside file insert: GEMINI_API_KEY = “Your key here”
+1. Verify your age for your personal google account, must be 18+
+2. Show driver license through here:https://myaccount.google.com/age-verification?p=2&avl=1&utm_source=p2
+3. Go here and create key: https://aistudio.google.com/
+4. Create a .env file
+5. Inside file insert: GEMINI_API_KEY = “Your key here”
