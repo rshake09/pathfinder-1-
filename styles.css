@@ -26,20 +26,18 @@ body {
   margin-bottom: 40px;
 }
 
-
 .icon {
   text-align: center;
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 0 auto 16px auto; 
+  margin: 0 auto 16px auto;
   font-size: 48px;
   margin-bottom: 16px;
   width: 100px;
   height: 80px;
   background-color: #8d34fe;
   border-radius: 30px;
-  
 }
 
 .title {
@@ -55,10 +53,9 @@ body {
 
 .subtitle p {
   text-align: center;
-  margin: 0 auto 16px auto; 
+  margin: 0 auto 16px auto;
   max-width: 600px;
   margin: 0 auto;
-  
 }
 
 .subtitle {
@@ -66,24 +63,19 @@ body {
   max-width: 600px;
   margin: 0 auto;
   color: #060606;
-  
 }
 
 .st-key-start_button {
   display: flex;
   justify-content: center;
-  margin: 0 auto 16px auto; 
+  margin: 0 auto 16px auto;
 }
-
 
 .st-key-start_button button {
   align-items: center;
   text-align: center;
   background-color: #8d34fe;
   padding: 6px 8px;
-  
-  
-
 }
 
 .footer-text {
@@ -120,71 +112,63 @@ body {
   color: #6b7280;
 }
 
-
-
 /* ---------- INPUT ---------- */
 
 /* Style assistant messages */
 div[data-testid="stChatMessageContent"] {
-    background-color: white;
-    color: #000000;
-    padding: 16px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
+  background-color: white;
+  color: #000000;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
 }
 
 /* Style the text inside chat messages */
 div[data-testid="stChatMessageContent"] p {
-    color: #000000 !important;
-    margin: 0;
+  color: #000000 !important;
+  margin: 0;
 }
-
 
 .st-key-user_input input {
-    background-color: #e9e3ff !important;
-    color: #000000 !important;  
-    margin-top: 16px;
-    display: flex;
-    gap: 8px;
+  background-color: #e9e3ff !important;
+  color: #000000 !important;
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
 }
-
-
-
-
 
 /* Remove gray background from user messages */
 div[data-testid="stChatMessage"]:has(div[data-testid="chatAvatarIcon-user"]) {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Style just the user message content box */
-div[data-testid="stChatMessage"]:has(div[data-testid="chatAvatarIcon-user"]) div[data-testid="stChatMessageContent"] {
-    background-color: white;
-    color: #000000;
-    padding: 16px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
+div[data-testid="stChatMessage"]:has(div[data-testid="chatAvatarIcon-user"])
+  div[data-testid="stChatMessageContent"] {
+  background-color: white;
+  color: #000000;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
 }
 
-
-
 .stApp {
-    background-color: #e9e3ff; /* adjust to match your purple */
+  background-color: #e9e3ff; /* adjust to match your purple */
 }
 
 /* Also change the chat input container background */
 div[data-testid="stChatInput"] {
-    background-color: #e9e3ff !important;
+  background-color: #e9e3ff !important;
 }
 
 /* And the bottom section where the input is */
 section[data-testid="stBottom"] {
-    background-color: #e9e3ff !important;
+  background-color: #e9e3ff !important;
 }
 
 /* Footer area */
 footer {
-    background-color: #e9e3ff !important;
+  background-color: #e9e3ff !important;
 }
 
 /*
