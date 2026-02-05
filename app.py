@@ -2,6 +2,9 @@ import streamlit as st
 import uuid
 import requests
 
+#FastAPI server
+API_URL = "http://localhost:8000"
+
 
 st.set_page_config(
     page_title = "PathFinder",
@@ -68,6 +71,16 @@ def landing_page():
         unsafe_allow_html=True
     )
 
+    try:
+        health_check = requests.get(f"{API_URL}/health", timeout=2)
+        if health_check.status_code == 200:
+            st.sidebar.success("✅ API Connected")
+        else:
+            st.sidebar.error("❌ API Not Responding")
+    except:
+        st.sidebar.error("❌ API Not Running")
+        st.error("Please start the FastAPI server: `uvicorn main:app --reload`")
+        st.stop()
 
 
 # ------------------ CHAT PAGE ------------------
@@ -108,7 +121,7 @@ def chat_page():
         with st.chat_message(msg["role"]):
             st.write(msg["content"])
 
-    # Quick action buttons
+    """
     col1, col2, col3, col4 = st.columns(4)
     if col1.button("🎓 Explore Majors"):
         st.session_state.messages.append(
@@ -133,6 +146,7 @@ def chat_page():
             {"role": "assistant", "content": "Sure! What options would you like to compare?"}
         )
         st.rerun()
+    """
 
     # User input
     user_input = st.chat_input("Type your message here...", key="user_input")
@@ -140,19 +154,32 @@ def chat_page():
     if user_input:
         st.session_state.messages.append({"role": "user", "content": user_input})
 
-        with st.spinner("Thinking..."): #added a thinking spinner during delays
-            # replaced with API call to backend
-            try:
-                response = requests.post(
-                    "http://127.0.0.1:8000/ask",
-                    json={"user_id": st.session_state.user_id, "message": user_input}
-                )
-                bot_reply = response.json()["response"]
-            except Exception as e: #changed the error message to be more user friendly
-                bot_reply = "Oops! Having trouble connecting right now. Please try again later."
-
-        st.session_state.messages.append({"role": "assistant", "content": bot_reply})
-        st.rerun()
+        with st.chat_message("user"):
+            st.write(user_input)
+    
+        # Get AI response
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking..."):
+                try:
+                    response = requests.post(
+                        f"{API_URL}/ask",
+                        json={
+                            "user_id": st.session_state.user_id,
+                            "message": user_input
+                        }
+                    )
+                    
+                    if response.status_code == 200:
+                        ai_response = response.json()["response"]
+                        st.write(ai_response)
+                        st.session_state.messages.append({
+                            "role": "assistant",
+                            "content": ai_response
+                        })
+                    else:
+                        st.error(f"Error: {response.status_code}")
+                except Exception as e:
+                    st.error(f"Error: {str(e)}")
 
 
 
